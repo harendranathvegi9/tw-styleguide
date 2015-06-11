@@ -1,0 +1,1 @@
+./node_modules/.bin/kss-node --source ./demo  --destination ./tw-styleguide --template ./src/template

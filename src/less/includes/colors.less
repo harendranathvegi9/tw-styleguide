@@ -1,0 +1,97 @@
+//Colors
+@tw-earths-tones:#FEE0C9,#F0BA95,#9E785F,#5E3E2A,#808285,#000000;
+@tw-bright-tones:#FFF450,#F78F31,#EE312D,#B11C54,#6A2569,#EF5BA1;
+@tw-cooler-tones:#B5B935,#89B77F,#11AA58,#80C9D2,#26BDCF,#1A73BA;
+
+//Earth colors
+//--------------------------------------------------------------
+@clr-earth-1: extract(@tw-earths-tones, 1);
+@clr-earth-2: extract(@tw-earths-tones, 2);
+@clr-earth-3: extract(@tw-earths-tones, 3);
+@clr-earth-4: extract(@tw-earths-tones, 4);
+@clr-earth-5: extract(@tw-earths-tones, 5);
+@clr-earth-6: extract(@tw-earths-tones, 6);
+
+//Bright colors
+//--------------------------------------------------------------
+@clr-bright-1: extract(@tw-bright-tones, 1);
+@clr-bright-2: extract(@tw-bright-tones, 2);
+@clr-bright-3: extract(@tw-bright-tones, 3);
+@clr-bright-4: extract(@tw-bright-tones, 4);
+@clr-bright-5: extract(@tw-bright-tones, 5);
+@clr-bright-6: extract(@tw-bright-tones, 6);
+
+//Cool colors
+//--------------------------------------------------------------
+@clr-cool-1: extract(@tw-cooler-tones, 1);
+@clr-cool-2: extract(@tw-cooler-tones, 2);
+@clr-cool-3: extract(@tw-cooler-tones, 3);
+@clr-cool-4: extract(@tw-cooler-tones, 4);
+@clr-cool-5: extract(@tw-cooler-tones, 5);
+@clr-cool-6: extract(@tw-cooler-tones, 6);
+
+/*
+Earth Tones
+
+Markup:
+<div class="twsg-style">
+  <ul class="twsg-color-cards">
+    <li class="twsg-color-header">Earth Tones</li>
+    <li class="twsg-color-card twsg-clr-bg-earth-1">#FEE0C9</li>
+    <li class="twsg-color-card twsg-clr-bg-earth-2">#F0BA95</li>
+    <li class="twsg-color-card twsg-clr-bg-earth-3">#9E785F</li>
+    <li class="twsg-color-card twsg-clr-bg-earth-4">#5E3E2A</li>
+    <li class="twsg-color-card twsg-clr-bg-earth-5">#808285</li>
+    <li class="twsg-color-card twsg-clr-bg-earth-6">#1A73BA</li>
+    <li class="twsg-color-card twsg-color-card--separator"></li>
+  </ul>
+</div>
+
+Styleguide 2.1
+ */
+.tw-colors(@tw-earths-tones,twsg-clr-bg-earth,1);
+.tw-colors(@tw-earths-tones,twsg-clr-txt-earth,1,'txt');
+
+/*
+Bright Tones
+
+Markup:
+<div class="twsg-style">
+  <ul class="twsg-color-cards">
+    <li class="twsg-color-header">Bright Tones</li>
+    <li class="twsg-color-card twsg-clr-bg-bright-1">#FFF450</li>
+    <li class="twsg-color-card twsg-clr-bg-bright-2">#F78F31</li>
+    <li class="twsg-color-card twsg-clr-bg-bright-3">#EE312D</li>
+    <li class="twsg-color-card twsg-clr-bg-bright-4">#B11C54</li>
+    <li class="twsg-color-card twsg-clr-bg-bright-5">#6A2569</li>
+    <li class="twsg-color-card twsg-clr-bg-bright-6">#EF5BA1</li>
+    <li class="twsg-color-card twsg-color-card--separator"></li>
+  </ul>
+</div>
+
+Styleguide 2.2
+ */
+.tw-colors(@tw-bright-tones,twsg-clr-bg-bright,1);
+.tw-colors(@tw-bright-tones,twsg-clr-txt-bright,1,'txt');
+
+/*
+Cool Tones
+
+Markup:
+<div class="twsg-style">
+  <ul class="twsg-color-cards">
+    <li class="twsg-color-header">Cool Tones</li>
+    <li class="twsg-color-card twsg-clr-bg-cool-1">#B5B935</li>
+    <li class="twsg-color-card twsg-clr-bg-cool-2">#89B77F</li>
+    <li class="twsg-color-card twsg-clr-bg-cool-3">#11AA58</li>
+    <li class="twsg-color-card twsg-clr-bg-cool-4">#80C9D2</li>
+    <li class="twsg-color-card twsg-clr-bg-cool-5">#26BDCF</li>
+    <li class="twsg-color-card twsg-clr-bg-cool-6">#1A73BA</li>
+    <li class="twsg-color-card twsg-color-card--separator"></li>
+  </ul>
+</div>
+
+Styleguide 2.3
+ */
+.tw-colors(@tw-cooler-tones,twsg-clr-bg-cool,1);
+.tw-colors(@tw-cooler-tones,twsg-clr-txt-cool,1,'txt');

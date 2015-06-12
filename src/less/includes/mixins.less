@@ -1,0 +1,36 @@
+/*
+Color Mixins
+
+Styleguide 5.1
+ */
+
+/*
+.tw-colors(@colorList,@className,@i,@type);
+ 
+Color class generator <br>
+Eg: <br>
+`.tw-colors(@tw-earths-tones,tw-clr-bg-earth,1);`<br>
+`.tw-colors(@tw-earths-tones,tw-clr-txt-earth,1);`
+
+@colorList - The list of colors to be looped over
+@className - The output class name that will be suffixed with index of the color
+@i - Index of the current item in the color list. Default: `1`
+@type - Either  `'bg'` or `'txt'` background color or font color. Default: `'bg'`
+
+Styleguide 5.1.1 
+*/
+.tw-colors(@colorList,@className,@i:1,@type:'bg') when (@i <= length(@colorList)){
+  & when (@type = 'bg'){ 
+    .@{className}-@{i}{
+      background-color: extract(@colorList,@i) !important;
+    }
+    .tw-colors(@colorList,@className,(@i+1));
+  }
+  & when (@type = 'txt'){ 
+    .@{className}-@{i}{
+      color: extract(@colorList,@i) !important;
+    }
+    .tw-colors(@colorList,@className,(@i+1),'txt');
+  }
+};
+

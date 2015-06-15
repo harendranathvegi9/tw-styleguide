@@ -1,0 +1,160 @@
+.twsg-style{
+/*
+  Stacked to horizontal  
+
+  Markup:
+  <div class="twsg-style">
+    <div class="twsg-grid-container-fluid">
+      <div class="twsg-grid-row show-grid">
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+        <div class="twsg-col-md-1">.twsg-col-md-1</div>
+      </div>
+      <div class="twsg-grid-row show-grid">
+        <div class="twsg-col-md-8">.twsg-col-md-8</div>
+        <div class="twsg-col-md-4">.twsg-col-md-4</div>
+      </div>
+      <div class="twsg-grid-row show-grid">
+        <div class="twsg-col-md-4">.twsg-col-md-4</div>
+        <div class="twsg-col-md-4">.twsg-col-md-4</div>
+        <div class="twsg-col-md-4">.twsg-col-md-4</div>
+      </div>
+      <div class="twsg-grid-row show-grid">
+        <div class="twsg-col-md-6">.twsg-col-md-6</div>
+        <div class="twsg-col-md-6">.twsg-col-md-6</div>
+      </div>
+     </div> 
+  </div>
+
+  Styleguide 1.1
+ */
+
+/*
+  Responsive column resets
+
+  Markup:
+  <div class="twsg-style">
+    <div class="twsg-grid-container-fluid">
+      <div class="twsg-grid-row show-grid">
+        <div class="twsg-col-xs-6 twsg-col-sm-3">.twsg-col-xs-6 .twsg-col-sm-3</div>
+        <div class="twsg-col-xs-6 twsg-col-sm-3">.twsg-col-xs-6 .twsg-col-sm-3</div>
+        <!-- Add the extra clearfix for only the required viewport -->
+        <div class="clearfix twsg-visible-xs"></div>
+        <div class="twsg-col-xs-6 twsg-col-sm-3">.twsg-col-xs-6 .twsg-col-sm-3</div>
+        <div class="twsg-col-xs-6 twsg-col-sm-3">.twsg-col-xs-6 .twsg-col-sm-3</div>
+      </div>
+    </div>
+  </div>
+
+  Styleguide 1.2
+*/
+
+  * {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+  .show-grid{
+    margin-bottom: 15px;
+  }
+
+  .show-grid [class^=twsg-col-] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+  }
+
+  .twsg-grid-container-fluid {
+    margin-left:0;
+    margin-right:0;
+    padding-left:  (@twsg-grid-gutter-width / 2);
+    padding-right: (@twsg-grid-gutter-width / 2);
+  }
+
+  // Set the container width, and override it for fixed navbars in media queries
+  .twsg-grid-container {
+    .container-fixed();
+
+    @media (min-width: @twsg-screen-sm) {
+      width: @container-sm;
+    }
+    @media (min-width: @twsg-screen-md) {
+      width: @container-md;
+    }
+    @media (min-width: @twsg-screen-lg) {
+      width: @container-lg;
+    }
+  }
+
+  // mobile first defaults
+  .twsg-grid-row {
+    .make-row();
+  }
+
+  // Common styles for small and large grid columns
+  .make-grid-columns();
+
+  // Extra small grid
+  //
+  // Columns, offsets, pushes, and pulls for extra small devices like
+  // smartphones.
+
+  .make-grid-columns-float(xs);
+  .make-grid(@twsg-grid-columns, xs, width);
+  .make-grid(@twsg-grid-columns, xs, pull);
+  .make-grid(@twsg-grid-columns, xs, push);
+  .make-grid(@twsg-grid-columns, xs, offset);
+
+
+  // Small grid
+  //
+  // Columns, offsets, pushes, and pulls for the small device range, from phones
+  // to tablets.
+
+  @media (min-width: @twsg-screen-sm) {
+    .make-grid-columns-float(sm);
+    .make-grid(@twsg-grid-columns, sm, width);
+    .make-grid(@twsg-grid-columns, sm, pull);
+    .make-grid(@twsg-grid-columns, sm, push);
+    .make-grid(@twsg-grid-columns, sm, offset);
+  }
+
+
+  // Medium grid
+  //
+  // Columns, offsets, pushes, and pulls for the desktop device range.
+
+  @media (min-width: @twsg-screen-md) {
+    .make-grid-columns-float(md);
+    .make-grid(@twsg-grid-columns, md, width);
+    .make-grid(@twsg-grid-columns, md, pull);
+    .make-grid(@twsg-grid-columns, md, push);
+    .make-grid(@twsg-grid-columns, md, offset);
+  }
+
+
+  // Large grid
+  //
+  // Columns, offsets, pushes, and pulls for the large desktop device range.
+
+  @media (min-width: @twsg-screen-lg) {
+    .make-grid-columns-float(lg);
+    .make-grid(@twsg-grid-columns, lg, width);
+    .make-grid(@twsg-grid-columns, lg, pull);
+    .make-grid(@twsg-grid-columns, lg, push);
+    .make-grid(@twsg-grid-columns, lg, offset);
+  }
+
+
+}

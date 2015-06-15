@@ -1,50 +1,10 @@
-div.twsg-style{
+.twsg-style{
   @import "normalize";
-
-  ul.twsg-color-cards{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li.twsg-color-header{
-      text-align: left;
-      width: 100%;
-      font-size: 30px;
-      .twsg-clr-txt-cool-4;
-      margin-bottom: 10px;
-    }
-
-    li.twsg-color-card{
-      display: block;
-      width: 100%;
-      height: 55px;
-      padding: 0 10px;
-      line-height: 55px;
-      text-align: left;
-      color: #FFFFFF;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-      font-family: monospace;
-      font-size: 16px;
-      .box-sizing(border-box);
-      .transition(all 0.3s 0s ease-out);
-
-      &:hover{
-        transform: scale(1.02);
-      }
-
-      > p{
-        text-shadow:none !important;
-      }
-
-      &.twsg-color-card--separator{
-        clear: both;
-        float: none;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        height: 1px;
-        .twsg-clr-bg-cool-4;
-      }
-    }
-  }
+  font-family: @twsg-font-family;
+  font-weight: @twsg-font-normal;
+  letter-spacing: normal;
+  word-spacing: normal;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 

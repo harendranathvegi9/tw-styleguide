@@ -1,0 +1,9 @@
+{
+  "source": "src/less/",
+  "destination": "styleguide/",
+  "css": [
+    "public/thoughtworks.min.css"
+  ],
+  "js": [],
+  "template": "src/template/"
+}

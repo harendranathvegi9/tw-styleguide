@@ -1,0 +1,202 @@
+/*
+  Color cards
+
+  List colors as shade cards
+
+  Markup:
+  <div class="twsg-style">
+    <ul class="twsg-color-cards">
+    <li class="twsg-color-header">
+      <h3 class="twsg-h3">Lorem ipsum dolor sit amet</h3>
+    </li>
+    <li class="twsg-color-card" style="background:#B5B935">#B5B935</li>
+    <li class="twsg-color-card" style="background:#89B77F">#89B77F</li>
+    <li class="twsg-color-card" style="background:#11AA58">#11AA58</li>
+    <li class="twsg-color-card twsg-color-card--separator"></li>
+   </ul>
+  </div>
+
+  Styleguide 4.1  
+ */   
+.twsg-style{ 
+  ul.twsg-color-cards{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &:before,&:after{
+      content:' ';
+      display: table;
+    }
+
+    &:after{
+      clear: both;
+    }
+
+    li.twsg-color-header{
+      text-align: left;
+      width: 100%;
+    }
+
+    li.twsg-color-card{
+      display: block;
+      width: 100%;
+      height: 55px;
+      padding: 0 10px;
+      line-height: 55px;
+      text-align: left;
+      color: #FFFFFF;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      font-family: monospace;
+      font-size: 16px;
+      .box-sizing(border-box);
+      .transition(all 0.3s 0s ease-out);
+
+      &:hover{
+        transform: scale(1.02);
+      }
+
+      &.twsg-color-card--separator{
+        clear: both;
+        float: none;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        height: 1px;
+        .twsg-clr-bg-bright-6;
+      }
+    }
+  }
+}
+
+/*
+  Main Menu
+
+  The styling of the main menu.
+  
+  Markup:
+  ../markup/main-nav.html
+
+  Styleguide 4.2
+ */
+
+ .twsg-style{
+   nav.twsg-nav{
+    height: 50px;
+    min-width: 960px;
+    background-color: #FFFFFF;
+
+    &:before,&:after{
+      content:' ';
+      display: table;
+    }
+
+    &:after{
+      clear: both;
+    }
+
+    a.twsg-logo{
+      float: left;
+      width: 200px;
+      margin-top: 12px;
+      img{
+        width: 100%;
+      }
+    }
+
+    ul.twsg-nav-menu{
+      float: right;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &:before,&:after{
+        content:' ';
+        display: table;
+      }
+
+      &:after{
+        clear: both;
+      }
+
+      > li.twsg-nav-menu-item{
+        float: left;
+        position: relative;
+        font-weight: @twsg-font-light;
+        
+        > a.twsg-nav-menu-link{
+          display: block;
+          padding: 0 10px;
+          font-size: 18px;
+          line-height: 50px;
+          .transition(all 0.2s 0s ease-out);
+        }
+
+        &:hover{
+          > a.twsg-nav-menu-link{
+            background-color: @clr-menu-hover;
+            .transform(translate(0,-2px));
+          }
+
+          ul.twsg-nav-menu-l2{
+            display: table;
+          }
+        }
+      }
+    }
+
+    ul.twsg-nav-menu-l2{
+      display: none;
+      top:100%;
+      right:0;
+      min-width:160px;
+      position: absolute;
+      z-index: 1000;
+      border:1px solid @clr-earth-5;
+      background-color: #FFFFFF !important;
+      border: 1px solid rgba(0,0,0,.15) !important;
+      .box-shadow(0 6px 12px rgba(0,0,0,.175));
+      overflow: hidden;
+
+      > li.twsg-nav-menu-item > a.twsg-nav-menu-link{
+        font-size: 16px !important;
+        &:hover{
+          background-color: @clr-menu-hover !important;
+        }
+      }
+    }
+
+    ul.twsg-nav-menu-l2,
+    ul.twsg-nav-menu-l3,
+    ul.twsg-nav-menu-l4{
+      list-style: none;
+      margin: 0;
+      padding: 5px 0;
+      background-color:darken(@clr-menu-hover,2%);
+      border-top:1px solid darken(@clr-menu-hover,5%);
+      border-bottom:1px solid darken(@clr-menu-hover,5%);
+
+      > li.twsg-nav-menu-item{
+        display: block;
+        clear: both;
+        white-space: nowrap;
+        font-weight: @twsg-font-light;
+
+        > a.twsg-nav-menu-link{
+          display: block;
+          padding: 3px 20px;
+          font-size: 14px;
+
+          &:hover{
+            background-color: darken(@clr-menu-hover,5%),;
+          }
+        }
+      }
+    }
+
+    .twsg-nav-menu-item{
+      &.active{
+        font-weight: @twsg-font-semi-bold !important;
+      }
+    }
+   }
+ }

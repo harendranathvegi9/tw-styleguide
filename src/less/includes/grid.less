@@ -2,61 +2,93 @@
 /*
   Stacked to horizontal  
 
+  Using a single set of `.twsg-col-md-*` grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any `.twsg-grid-row`.
+
   Markup:
-  <div class="twsg-style">
-    <div class="twsg-grid-container-fluid">
-      <div class="twsg-grid-row show-grid">
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-        <div class="twsg-col-md-1">.twsg-col-md-1</div>
-      </div>
-      <div class="twsg-grid-row show-grid">
-        <div class="twsg-col-md-8">.twsg-col-md-8</div>
-        <div class="twsg-col-md-4">.twsg-col-md-4</div>
-      </div>
-      <div class="twsg-grid-row show-grid">
-        <div class="twsg-col-md-4">.twsg-col-md-4</div>
-        <div class="twsg-col-md-4">.twsg-col-md-4</div>
-        <div class="twsg-col-md-4">.twsg-col-md-4</div>
-      </div>
-      <div class="twsg-grid-row show-grid">
-        <div class="twsg-col-md-6">.twsg-col-md-6</div>
-        <div class="twsg-col-md-6">.twsg-col-md-6</div>
-      </div>
-     </div> 
-  </div>
+  ../markup/grid-horizontal.html
 
   Styleguide 1.1
+ */
+
+/*
+  Fluid container
+
+  Turn any fixed-width grid layout into a full-width layout by changing your outermost `.twsg-grid-container` to `.twsg-grid-container-fluid`.
+ 
+  `
+    <div class="container-fluid">
+      <div class="row">
+        ...
+      </div>
+    </div>
+  `
+
+  Styleguide 1.2
+ */
+
+/*
+  Mobile and desktop
+
+  Don't want your columns to simply stack in smaller devices? Use the extra small and medium device grid classes by adding `.twsg-col-xs-*` `.twsg-col-md-*` to your columns. See the example below for a better idea of how it all works.
+   
+  Markup:
+  ../markup/grid-mb-dt.html
+
+  Styleguide 1.3
+ */
+
+/*
+  Mobile, tablet, desktop
+
+  Build on the previous example by creating even more dynamic and powerful layouts with tablet `.col-sm-*` classes.
+
+  Markup:
+  ../markup/grid-mb-tb-dt.html
+
+  Styleguide 1.4
  */
 
 /*
   Responsive column resets
 
   Markup:
-  <div class="twsg-style">
-    <div class="twsg-grid-container-fluid">
-      <div class="twsg-grid-row show-grid">
-        <div class="twsg-col-xs-6 twsg-col-sm-3">.twsg-col-xs-6 .twsg-col-sm-3</div>
-        <div class="twsg-col-xs-6 twsg-col-sm-3">.twsg-col-xs-6 .twsg-col-sm-3</div>
-        <!-- Add the extra clearfix for only the required viewport -->
-        <div class="clearfix twsg-visible-xs"></div>
-        <div class="twsg-col-xs-6 twsg-col-sm-3">.twsg-col-xs-6 .twsg-col-sm-3</div>
-        <div class="twsg-col-xs-6 twsg-col-sm-3">.twsg-col-xs-6 .twsg-col-sm-3</div>
-      </div>
-    </div>
-  </div>
+  ../markup/grid-column-resets.html
 
-  Styleguide 1.2
+  Styleguide 1.5
 */
+
+/*
+  Offsetting columns
+
+  Move columns to the right using `.twsg-col-md-offset-*` classes. These classes increase the left margin of a column by `*` columns. For example, `.twsg-col-md-offset-4` moves `.twsg-col-md-4` over four columns.
+
+  Markup:
+  ../markup/grid-column-offsets.html
+
+  Styleguide 1.6
+*/
+
+/*
+  Nesting columns
+
+  To nest your content with the default grid, add a new .row and set of `.col-sm-*` columns within an existing `.col-sm-*` column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).
+
+  Markup:
+  ../markup/grid-column-nesting.html
+
+  Styleguide 1.7
+ */
+
+/*
+  Column ordering
+
+  Easily change the order of our built-in grid columns with `.col-md-push-*` and `.col-md-pull-*` modifier classes.
+
+  Markup:
+  ../markup/grid-column-reorder.html
+
+  Styleguide 1.8
+ */
 
   * {
       -webkit-box-sizing: border-box;

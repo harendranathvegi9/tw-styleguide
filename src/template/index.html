@@ -26,6 +26,8 @@
   <header class="kss-header">
     <h1 class="kss-doc-title">{{options.title}}</h1>
   </header>
+  
+  
   <nav class="kss-nav">
     <ul class="kss-nav__menu">
       <li class="kss-nav__menu-item">
@@ -60,6 +62,37 @@
   </nav>
 </div>
 <article role="main" class="kss-main">
+
+<div class="twsg-style">
+  <div class="twsg-grid-container">
+    <nav class="twsg-nav">
+      <a class="twsg-logo" title="Logo" href="#">
+        <img src="public/tw-logo.png" alt="Logo" tabindex="0">
+      </a>
+      <ul class="twsg-nav-menu">
+        <li class="twsg-nav-menu-item">
+          <a class="twsg-nav-menu-link" tabindex="0" href="./">Overview</a>
+        </li>
+        {{#eachRoot}}
+        <li class="twsg-nav-menu-item">
+          <a class="twsg-nav-menu-link" tabindex="0" href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}">{{header}}</a>
+          <ul class="twsg-nav-menu-l2">
+          {{#eachSection reference}}
+            {{#ifDepth 2}}
+            <li class="twsg-nav-menu-item">
+              <a class="twsg-nav-menu-link" tabindex="0" href="section-{{../../referenceURI}}.html#kssref-{{referenceURI}}">{{header}}</a>
+            </li>
+            {{/ifDepth}}
+          {{/eachSection}} 
+          </ul> 
+        </li>
+        {{/eachRoot}}
+      </ul>
+    </nav> 
+  </div> 
+</div>
+
+
 {{#if homepage}}
   <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
     {{{homepage}}}

@@ -81,8 +81,9 @@
 
  .twsg-style{
    nav.twsg-nav{
-    height: 50px;
+    height: 60px;
     background-color: #FFFFFF;
+    padding: 5px;
 
     &:before,&:after{
       content:' ';
@@ -128,6 +129,13 @@
           font-size: 18px;
           line-height: 50px;
           .transition(all 0.2s 0s ease-out);
+          text-decoration: none;
+          .twsg-clr-txt-earth-6;
+
+          &:hover,
+          &:visited{
+            text-decoration: none;
+          }
         }
 
         &:hover{
@@ -184,6 +192,13 @@
           display: block;
           padding: 3px 20px;
           font-size: 14px;
+          text-decoration: none;
+          .twsg-clr-txt-earth-6;
+
+          &:hover,
+          &:visited{
+            text-decoration: none;
+          }
 
           &:hover{
             background-color: darken(@clr-menu-hover,5%),;

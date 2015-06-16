@@ -8,9 +8,12 @@ Styleguide 5.1
 .tw-colors(@colorList,@className,@i,@type);
  
 Color class generator <br>
-Eg: <br>
-`.tw-colors(@tw-earths-tones,tw-clr-bg-earth,1);`<br>
-`.tw-colors(@tw-earths-tones,tw-clr-txt-earth,1);`
+Eg:
+
+```
+.tw-colors(@tw-earths-tones,tw-clr-bg-earth,1);
+.tw-colors(@tw-earths-tones,tw-clr-txt-earth,1);
+```
 
 @colorList - The list of colors to be looped over
 @className - The output class name that will be suffixed with index of the color
@@ -46,8 +49,10 @@ Styleguide 5.1.1
 // 2. The use of `table` rather than `block` is only necessary if using
 //    `:before` to contain the top-margins of child elements.
 //  
-// Eg: <br>
-// `.clearfix()` 
+// Eg:
+// ```javascript
+// .clearfix()
+// ``` 
 // 
 // Styleguide 5.2      
 .clearfix() {

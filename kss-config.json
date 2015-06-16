@@ -4,6 +4,8 @@
   "css": [
     "public/thoughtworks.min.css"
   ],
-  "js": [],
+  "js": [
+    "public/thoughtworks.js"
+  ],
   "template": "src/template/"
 }

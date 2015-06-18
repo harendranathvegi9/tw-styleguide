@@ -33,7 +33,7 @@ gulp.task('clean:build', function(cb) {
 })
 //Copy styleguide assets
 .task('styleguide:copy', ['styleguide:create'], function() {
-  return gulp.src(['./build/css/*.*', './src/img/*.*', './src/js/*.*'])
+  return gulp.src(['./build/css/**', './src/img/**', './src/js/**'])
     .pipe(gulp.dest('./styleguide/public'));
 })
 //Generate the styleguide

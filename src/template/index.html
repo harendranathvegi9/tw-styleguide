@@ -16,9 +16,10 @@
   {{#if homepage}}
     <!-- Overview CSS -->
   {{else}}
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
-    {{{styles}}}
+    
   {{/if}}
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+    {{{styles}}}
 </head>
 <body id="kss-node">
 
@@ -94,8 +95,14 @@
 
 
 {{#if homepage}}
-  <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style">
-    {{{homepage}}}
+  <div id="kssref-0" class="kss-section kss-section--depth-0 kss-overview kss-style twsg-style">
+    <div class="twsg-grid-container">
+      <div class="twsg-grid-row">
+        <div class="twsg-col-xs-12 twsg-overview">
+          {{{homepage}}}
+        </div>    
+      </div>
+    </div>
   </div>
 {{else}}
 

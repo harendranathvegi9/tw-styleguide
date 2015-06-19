@@ -17,8 +17,12 @@
   Styleguide 3.1
  */
 .twsg-style{
-  h1,h2,h3,h4,h5,h6,
-  .twsg-h1,.twsg-h2,.twsg-h3,.twsg-h4,.twsg-h5,.twsg-h6{
+  .twsg-h1,
+  .twsg-h2,
+  .twsg-h3,
+  .twsg-h4,
+  .twsg-h5,
+  .twsg-h6{
       margin: 0 0 20px 0;
       font-family: @twsg-font-family;
       font-weight: @twsg-font-normal;
@@ -27,10 +31,11 @@
   }
 
   strong {
+    font-family: @twsg-font-family;
     font-weight: @twsg-font-bold;
   }
 
-  h1,.twsg-h1 {
+  .twsg-h1 {
     font-size: 40px;
     font-weight: @twsg-font-extra-bold;
     line-height: 0.8em;
@@ -40,7 +45,7 @@
     margin: 25px 0;
     text-transform: uppercase;
 
-    &.twsg-h1--light{
+    &--light{
       font-size: 35px;
       font-weight: @twsg-font-light;
       text-transform: none;
@@ -49,56 +54,57 @@
     }
   }
 
-  h2,.twsg-h2 {
+  .twsg-h2 {
     font-size: 28px;
     font-weight: @twsg-font-light;
     line-height: 1em;
     margin: 0 0 25px 0;
   }
 
-  h1,h2,.twsg-h1,.twsg-h2{
+  .twsg-h1,
+  .twsg-h2{
     > small {
       font-size: 18px;
     }
   }
 
-  h3,.twsg-h3 {
-      font-size: 26px;
-      font-weight: @twsg-font-light;
-      line-height: 1.2em;
-      margin: 25px 0;
+  .twsg-h3 {
+    font-size: 26px;
+    font-weight: @twsg-font-light;
+    line-height: 1.2em;
+    margin: 25px 0;
 
-      > small {
-        font-size: 14px;
-      }
+    > small {
+      font-size: 14px;
+    }
   }
 
-  h4,.twsg-h4 {
-      font-size: 18px;
-      font-weight: @twsg-font-bold;
-      margin-bottom: 8px;
+  .twsg-h4 {
+    font-size: 18px;
+    font-weight: @twsg-font-bold;
+    margin-bottom: 8px;
 
-      > small{
-        font-size: 12px;
-      }
+    > small{
+      font-size: 12px;
+    }
   }
 
-  h5,.twsg-h5,
-  h6,.twsg-h6 {
-      font-weight: @twsg-font-bold;
-      margin-bottom: 6px
+  .twsg-h5,
+  .twsg-h6 {
+    font-weight: @twsg-font-bold;
+    margin-bottom: 6px;
   }
 
-  h5,.twsg-h5 {
+  .twsg-h5 {
     font-size: 12px;
   }
 
-  h6,.twsg-h6 {
+  .twsg-h6 {
     font-size: 11px;
   }
 
   @media screen and (max-width: 370px) {
-    h1,.twsg-h1 {
+    .twsg-h1 {
       font-size: 34px;
       &.twsg-h1--light{
         font-size: 34px;
@@ -106,7 +112,7 @@
     }
   }
   @media screen and (min-width: 601px) and (max-width: 780px) {
-    h1,.twsg-h1 {
+    .twsg-h1 {
       font-size: 55px;
       &.twsg-h1--light{
         font-size: 70px;
@@ -114,21 +120,21 @@
     }
   }
   @media screen and (min-width: 781px) {
-    h1,.twsg-h1 {
+    .twsg-h1 {
       font-size: 65px;
-      &.twsg-h1--light{
+      &--light{
         font-size: 80px;
       }
     }
   }
 
   @media screen and (min-width: 600px) {
-    h2,.twsg-h2 {
+    .twsg-h2 {
       font-size: 36px;
     }
   }
   @media screen and (min-width: 985px) {
-    h2,.twsg-h2 {
+    .twsg-h2 {
       font-size: 48px;
     }
   }
@@ -136,11 +142,11 @@
 
 .twsg-overview{
 
-    > h1, > .twsg-h1 {
-      text-align: center;
-    }
+  .twsg-h1 {
+    text-align: center;
+  }
 
-    > blockquote{
+  > blockquote{
     font-family: @twsg-font-family;
     font-weight: @twsg-font-light;
     font-style: italic;
@@ -158,11 +164,12 @@
       margin: 0 auto;
     }
 
-    > p, > ul {
+    p, ul {
       font-family: @twsg-font-family;
       margin: 0;
     } 
-    > p {
+
+    p {
       background: url('./quote-close-2.png') no-repeat right 0;
       font-size: 20px;
       line-height: 26px;
@@ -177,12 +184,13 @@
         padding: 0 80px 25px 80px;
       }
     }
-    > ul > li{
+
+    ul li{
       font-family: @twsg-font-family;
       font-style: normal;
       font-weight: 700;
       list-style: none;
       text-align: right;
-    } 
+    }
   }
 }

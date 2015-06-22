@@ -37,12 +37,12 @@
           {{#ifDepth 2}}
             <li class="twsg-nav-menu-mb__item twsg-nav-menu-mb__item--l2">
               <a 
-              href="section-{{../../referenceURI}}#twsg-ref-{{referenceURI}}.html" 
+              href="section-{{../../referenceURI}}.html#twsg-ref-{{referenceURI}}" 
               class="twsg-nav-menu-mb__item-link" tabindex="0">
               {{header}}
               </a>
             </li>
-          {{/if}}
+          {{/ifDepth}}
         {{/eachSection}}   
       {{/eachRoot}}
     </ul>
@@ -51,7 +51,7 @@
   <div class="twsg-style">
     <div class="twsg-grid-container">
       <div class="twsg-grid-row">
-          <nav class="twsg-nav twsg-nav--blue">
+          <nav class="twsg-nav twsg-nav--pink">
             <a class="twsg-nav__logo" title="Logo" href="./index.html">
               <img class="twsg-nav__logo-img" src="public/tw-logo-white.png" alt="Logo" tabindex="0">
             </a>
@@ -70,9 +70,9 @@
                 {{#eachSection reference}}
                   {{#ifDepth 2}}
                     <li class="twsg-nav-menu-l2__item">
-                      <a  href="section-{{../../referenceURI}}#twsg-ref-{{referenceURI}}.html" class="twsg-nav-menu-l2__item-link" tabindex="0">{{header}}</a>
+                      <a  href="section-{{../../referenceURI}}.html#twsg-ref-{{referenceURI}}" class="twsg-nav-menu-l2__item-link" tabindex="0">{{header}}</a>
                     </li>
-                  {{/if}}
+                  {{/ifDepth}}
                 {{/eachSection}}
                 </ul>
               </li>
@@ -86,9 +86,13 @@
   {{#if homepage}}
     <!-- Hero Banner -->
     <div class="twsg-style">
-      <section class="twsg-hero twsg-hero--style-2">
-        <h1 class="twsg-h1 twsg-h1--hero-title">Ambitious missions need disruptive thinking</h1>
-      </section>
+      <div class="twsg-grid-container">
+        <div class="twsg-grid-row">
+          <section class="twsg-hero twsg-hero--style-3">
+            <h1 class="twsg-h1 twsg-h1--hero-title">Ambitious missions need disruptive thinking</h1>
+          </section>
+        </div>
+      </div>    
     </div>
     <!-- Overview Page -->
     <div id="twsg-ref-0" class="twsg-style">
@@ -101,10 +105,11 @@
       </div>
     </div>
   {{else}}
-  <div class="twsg-style"></div>
+  <div class="twsg-style">
     <div class="twsg-grid-container">
       <div class="twsg-grid-row">
         <div class="twsg-col-xs-12">
+          {{#eachSection rootName}}
           <article class="twsg-style">
             {{#ifDepth 1}}
               <div id="twsg-ref-{{referenceURI}}" class="twsg-section twsg-section--depth-{{depth}}">
@@ -113,19 +118,20 @@
             {{/ifDepth}}
               <header class="twsg-section-header">
                 {{#ifDepth 1}}
-                <h1 class="twsg-h1 twsg-h1--section-heading">
-                  <a href="#twsg-ref-{{referenceURI}}" class="twsg-section__permalink">
-                    {{header}}
-                  </a>
-                </h1>
+                  <h1 class="twsg-h1 twsg-h1--section-heading">
+                    <a href="#twsg-ref-{{referenceURI}}" class="twsg-section__permalink">
+                      {{header}}
+                    </a>
+                  </h1>
                 {{else}}
-                <h2 class="twsg-h2 twsg-h2--section-heading">
-                  <a href="#twsg-ref-{{referenceURI}}" class="twsg-section__permalink">
-                    {{header}}
-                  </a>
-                </h2>
+                  <h2 class="twsg-h2 twsg-h2--section-heading">
+                    <a href="#twsg-ref-{{referenceURI}}" class="twsg-section__permalink">
+                      {{header}}
+                    </a>
+                  </h2>
                 {{/ifDepth}}
-                <h3 class="twsg-h3 twsg-h3--section-heading">Section 
+                <h3 class="twsg-h3 twsg-h3--section-heading">
+                Section 
                 {{#ifNumeric reference}}
                   {{reference}}
                 {{else}}
@@ -191,6 +197,7 @@
               </section>
             {{/ifDepth}}
           </article>
+          {{/eachSection}}
         </div>
       </div>
     </div>

@@ -216,15 +216,19 @@
         display: block;
         white-space: nowrap;
         font-weight: @twsg-font-light;
+
       
         &-link{
           font-size: 14px;
           line-height: 25px;
           display: block;
           padding: 0 10px;
+          text-decoration: none;
+          .twsg-clr-txt-earth-6;
 
           &:hover{
             background-color: @clr-menu-hover;
+            text-decoration: none;
           }
         }
       }
@@ -247,6 +251,7 @@
 
     &.active{
       .transform(translate(0,0));
+      overflow: auto;
     }
 
     &__item,&-l2__item{

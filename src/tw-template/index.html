@@ -97,7 +97,7 @@
     <!-- Overview Page -->
     <div id="twsg-ref-0" class="twsg-style">
       <div class="twsg-grid-container">
-        <div class="twsg-grid-row">
+        <div class="twsg-grid-row twsg-content">
           <div class="twsg-col-xs-12 twsg-overview">
             {{{homepage}}}
           </div>    
@@ -108,7 +108,7 @@
   <div class="twsg-style">
     <div class="twsg-grid-container">
       <div class="twsg-grid-row">
-        <div class="twsg-col-xs-12">
+        <div class="twsg-col-xs-12 twsg-content">
           {{#eachSection rootName}}
           <article class="twsg-style">
             {{#ifDepth 1}}
@@ -142,9 +142,15 @@
 
               {{#if parameters}}
                 <ul class="twsg-section-parameters">
+                  <li class="twsg-section-parameters__item">
+                    <div class="twsg-section-parameters__code">Parameter</div>
+                    <div class="twsg-section-parameters__desc">Description</div>
+                  </li>
                 {{#eachParameter}}
                   <li class="twsg-section-parameters__item">
-                    <code class="twsg-section-parameters__code">{{name}}</code>
+                    <div class="twsg-section-parameters__code">
+                      <code>{{name}}</code>
+                    </div>
                     <div class="twsg-section-parameters__desc">{{{description}}}</div>
                   </li>
                 {{/eachParameter}}
@@ -158,37 +164,42 @@
               {{/if}}
 
               {{#if markup}}
-                
-                <div class="kss-modifier__wrapper">
-                  <div class="kss-modifier__heading kss-style">
-                    Example{{#if modifiers}}s{{/if}}
+                <div class="twsg-grid-row twsg-section-modifier">
+                  
+                  <div class="twsg-col-xs-12">
+                    <div class="twsg-section-modifier__heading">
+                      Example{{#if modifiers}}s{{/if}}
+                    </div>
+                    {{#if modifiers}}
+                    <div class="twsg-section-modifier__default-name">
+                      Default styling
+                    </div>
+                    {{/if}}
+                  
+                    <div class="twsg-section-modifier__example">
+                      {{{markup}}}
+                    </div>
                   </div>
-                {{#if modifiers}}
-                  <div class="kss-modifier__default-name kss-style">
-                    Default styling
-                  </div>
-                {{/if}}
-                  <div class="kss-modifier__example">
-                    {{{markup}}}
-                  </div>
-                {{#eachModifier}}
-                  <div class="kss-modifier__name kss-style">
-                    {{name}}
-                  </div>
-                  <div class="kss-modifier__description kss-style">
-                    {{{description}}}
-                  </div>
-                  <div class="kss-modifier__example">
-                    {{{markup}}}
-                  </div>
-                {{/eachModifier}}
-                </div>
 
-                <div class="kss-markup kss-style">
-                  <pre class="prettyprint linenums lang-html">
-                    <code data-language="html">{{markup}}</code>
-                  </pre>
-                </div>
+                  {{#eachModifier}}
+                    <div class="twsg-col-xs-12">
+                      <div class="twsg-section-modifier__name-desc">
+                        <code>{{name}}</code>
+                        {{{description}}}
+                      </div>
+                      <div class="twsg-section-modifier__example">
+                        {{{markup}}}
+                      </div>
+                    </div>  
+                  {{/eachModifier}}
+                  <div class="twsg-col-xs-12"> 
+                    <div class="twsg-section-markup">
+                      <pre class="prettyprint linenums lang-html">
+                        <code data-language="html">{{markup}}</code>
+                      </pre>
+                    </div>
+                  </div>
+                </div>  
               {{/if}}
 
             {{#ifDepth 1}}

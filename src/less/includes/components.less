@@ -465,14 +465,117 @@
       padding: 0;
       margin: 0;
       list-style: none;
+      border: 1px solid #DDDDDD;
+      border-spacing: 0;
+      border-collapse: collapse;
+      background: #FFF;
+      
       &__item{
         display: table-row;
+
+        &:first-child{
+          .twsg-section-parameters__code,
+          .twsg-section-parameters__desc{
+            background: #EEEEEE;
+            border-top: 0;
+          }
+        }
+      }
+      &__code,&__desc{
+        display: table-cell;
+        padding: 8px;
+        line-height: 22px;
+        vertical-align: top;
+        border: 1px solid #DDDDDD;
+        font-family: @twsg-font-family;
+        font-weight: 400;
+        text-align: left;
       }
       &__code{
-        display: table-cell;
+        > code{
+          font-family: monospace;
+          padding: 2px 4px;
+          font-size: 90%;
+          color: #c7254e;
+          background-color: #f9f2f4;
+          border-radius: 4px;
+        }
       }
-      &__desc{
-        display: table-cell;
+    }
+
+    &-modifier{
+      background: lighten(#EFEFEF,2%);
+      &__heading{
+        font-size: 20px;
+        margin: 10px 0;
+      }
+      &__default-name{
+        font-weight: @twsg-font-semi-bold;
+        margin-bottom: 10px;
+      }
+      &__name-desc{
+        > code{
+          font-family: monospace;
+          padding: 2px 4px;
+          font-size: 90%;
+          color: #c7254e;
+          background-color: #f9f2f4;
+          border-radius: 4px;
+        }
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: @twsg-font-semi-bold;
+      }
+    }
+  }
+}
+
+/*
+  Tables
+
+  Only works in the overview page
+
+  Markup:
+  ../markup/table.html
+
+  Styleguide 4.5
+ */
+.twsg-overview{
+  table{
+    display: table;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid #DDDDDD;
+    border-spacing: 0;
+    border-collapse: collapse;
+    background: #FFF;
+
+    th,td{
+      display: table-cell;
+      padding: 8px;
+      line-height: 22px;
+      vertical-align: top;
+      border: 1px solid #DDDDDD;
+      font-family: @twsg-font-family;
+      font-weight: 400;
+      text-align: left;
+
+      > code{
+        font-family: monospace;
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        border-radius: 4px;
+      }
+    }
+
+    thead{
+      th,td{
+        background: #EEEEEE;
+        border-top: 0;
       }
     }
   }

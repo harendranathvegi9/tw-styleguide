@@ -20,7 +20,7 @@ If you'd like to quote someone, use the > character before the line:
 ##### This is an `<h5>` tag
 ###### This is an `<h6>` tag
 
-####Emphasis
+##Emphasis
 *This text will be italic*
 _This will also be italic_
 
@@ -29,11 +29,11 @@ __This will also be bold__
 
 *You **can** combine them*
 
-####Links
+##Links
 http://github.com - automatic!
 [GitHub](http://github.com)
 
-####Code
+##Code
 
 There are many different ways to style code with GitHub's markdown. If you have inline code blocks, wrap them in backticks: `var example = true`.  If you've got a longer block of code, you can indent with four spaces:
 
@@ -57,31 +57,33 @@ if (isAwesome){
 }
 ```
 
-####Sometimes you want numbered lists:
+###Sometimes you want numbered lists:
 
 1. One
 2. Two
 3. Three
 
-####Sometimes you want bullet points:
+###Sometimes you want bullet points:
 
 * Start a line with a star
 * Profit!
 
-####Alternatively,
+###Alternatively,
 
 - Dashes work just as well
 - And if you have sub points, put two spaces before the dash or star:
   - Like this
   - And this
 
-####Table
+###Table
 
 First Header | Second Header
 ------------ | -------------
 Content from cell 1 | Content from cell 2
 Content in the first column | Content in the second column  
 
-####If you want to embed images, this is how you do it:
-
+###If you want to embed images, this is how you do it:
+####Large Images
+<img src="https://octodex.github.com/images/yaktocat.png" alt="Yaktocat" class="img-responsive">
+####Smaller Images
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)

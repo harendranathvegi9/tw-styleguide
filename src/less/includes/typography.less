@@ -27,7 +27,7 @@
       font-family: @twsg-font-family;
       font-weight: @twsg-font-normal;
       text-rendering: optimizelegibility;
-      line-height: 1.6em
+      line-height: 1.6em;
   }
 
   strong {
@@ -141,9 +141,104 @@
 }
 
 .twsg-overview{
+  
+  img.img-responsive{
+    max-width: 100%;
+  }
 
-  .twsg-h1 {
+  h1 {
     text-align: center;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
+      margin: 0 0 20px 0;
+      font-family: @twsg-font-family;
+      font-weight: @twsg-font-normal;
+      text-rendering: optimizelegibility;
+      line-height: 1.6em;
+  }
+
+  strong {
+    font-family: @twsg-font-family;
+    font-weight: @twsg-font-bold;
+  }
+
+  h1 {
+    font-size: 40px;
+    font-weight: @twsg-font-extra-bold;
+    line-height: 0.8em;
+    letter-spacing: -0.08em;
+    display: block;
+    padding: 0;
+    margin: 25px 0;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: @twsg-font-semi-bold;
+    line-height: 1em;
+    margin: 0 0 25px 0;
+  }
+
+
+  h3 {
+    font-size: 26px;
+    font-weight: @twsg-font-semi-bold;
+    line-height: 1.2em;
+    margin: 25px 0;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: @twsg-font-bold;
+    margin-bottom: 8px;
+  }
+
+  h5,
+  h6 {
+    font-weight: @twsg-font-bold;
+    margin-bottom: 6px;
+  }
+
+  h5 {
+    font-size: 12px;
+  }
+
+  h6 {
+    font-size: 11px;
+  }
+
+  @media screen and (max-width: 370px) {
+    h1 {
+      font-size: 34px;
+    }
+  }
+  @media screen and (min-width: 601px) and (max-width: 780px) {
+    h1 {
+      font-size: 55px;
+    }
+  }
+  @media screen and (min-width: 781px) {
+    h1 {
+      font-size: 65px;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    h2 {
+      font-size: 36px;
+    }
+  }
+  @media screen and (min-width: 985px) {
+    h2 {
+      font-size: 48px;
+    }
   }
 
   > blockquote{
@@ -185,12 +280,15 @@
       }
     }
 
-    ul li{
-      font-family: @twsg-font-family;
-      font-style: normal;
-      font-weight: 700;
-      list-style: none;
-      text-align: right;
+    ol,ul {
+      list-style-position: inside;
+      li{
+        font-family: @twsg-font-family;
+        font-style: normal;
+        font-weight: 700;
+        list-style: none;
+        text-align: right;
+      }
     }
   }
 }

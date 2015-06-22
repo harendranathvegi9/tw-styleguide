@@ -2,9 +2,6 @@
 
   var TWSG = function() {
     var self = this;
-    this.rclass = /[\t\r\n\f]/g;
-    this.rnotwhite = (/\S+/g);
-    this.whitespace = "[\\x20\\t\\r\\n\\f]";
     this.rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
   };
 
@@ -15,30 +12,24 @@
       (text + '').replace(self.rtrim, '');
   };
 
-  TWSG.prototype.addClass = function(element, value) {
+  TWSG.prototype.hasClass = function(ele, cls) {
+    return !!ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+  }
+
+  TWSG.prototype.addClass = function(ele, cls) {
     var self = this;
-    var proceed = typeof value === 'string' && value;
-    var classes, current, className, finalValue;
-    if (proceed) {
-      classes = (value || '').match(self.rnotwhite) || [];
-      current = element.nodeType === 1 && (element.className ? (' ' + element.className + ' ').replace(self.rclass, ' ') : ' ');
-
-      if (current) {
-        var i = 0;
-        while ((className = classes[i++])) {
-          if (current.indexOf(' ' + className + ' ') < 0) {
-            current += className + ' ';
-          }
-        }
-
-        // only assign if different to avoid unneeded rendering.
-        finalValue = self.trim(current);
-        if (element.className !== finalValue) {
-          element.className = finalValue;
-        }
-      }
+    if (!self.hasClass(ele, cls)) {
+      ele.className = self.trim(ele.className + ' ' + cls);
     }
-  };
+  }
+
+  TWSG.prototype.removeClass = function(ele, cls) {
+    var self = this;
+    if (self.hasClass(ele, cls)) {
+      var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+      ele.className = ele.className.replace(reg, '');
+    }
+  }
 
   TWSG.prototype.preChecker = function() {
     var self = this;
@@ -52,7 +43,40 @@
     };
   }
 
+  TWSG.prototype.navBinding = function() {
+    
+    var self = this;
+    var body = document.querySelector('body');
+    var navBars = document.querySelectorAll('.twsg-nav');
+    var mbNav = document.querySelector('.twsg-nav-menu-mb');
+    var mbNavClose = document.querySelectorAll('.twsg-nav-menu-mb__item--close > a');
+
+    for (var i = 0; i < navBars.length; i++) {
+      var toggleSwitch = navBars[i].getElementsByClassName("twsg-nav__toggle")[0];
+      toggleSwitch.onclick = function(e) {
+        window.scrollTo(0, 0);
+        var body = document.querySelector('body');
+        self.addClass(body, 'twsg-remove-scroll');
+        self.addClass(mbNav, 'active');
+      }
+    }
+
+    for (var j = 0; j < mbNavClose.length; j++) {
+      var closeEl = mbNavClose[j];
+      closeEl.onclick = function(e) {
+        self.removeClass(body, 'twsg-remove-scroll');
+        self.removeClass(mbNav, 'active');
+      }
+    }
+
+    window.onresize = function(e) {
+      self.removeClass(body, 'twsg-remove-scroll');
+      self.removeClass(mbNav, 'active');
+    };
+  };
+
   var twsgInstance = new TWSG();
   twsgInstance.preChecker();
+  twsgInstance.navBinding();
 
 })(window);

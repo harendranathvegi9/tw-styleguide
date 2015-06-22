@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]>            <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IEMobile 7]>          <html class="no-js iem7" lang="en"> <![endif]-->
+<!--[if (IE 7)&(!IEMobile)]>  <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>                <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <!-- Modify as per project -->
+  <title>ThoughtWorks Styleguide</title>
+
+  <meta name="description" content="">
+  <meta name="generator" content="kss-node">
+  <meta name="viewport" content="width=device-width">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="public/thoughtworks.min.css">
+  {{{styles}}}
+</head>
+<body id="twsg-style">
+  <div class="twsg-style">
+  <!-- Mobile navigation -->
+    <ul class="twsg-nav-menu-mb">
+      <li class="twsg-nav-menu-mb__item twsg-nav-menu-mb__item--close">
+        <a class="twsg-nav-menu-mb__item-link" tabindex="0" href="javascript:void(0)">&#x2716;</a>
+      </li>
+      <li class="twsg-nav-menu-mb__item">
+        <a href="./index.html" class="twsg-nav-menu-mb__item-link" tabindex="0" data-index="0">Overview</a>
+      </li>
+      {{#eachRoot}}
+      <li class="twsg-nav-menu-mb__item">
+        <a href="section-{{referenceURI}}.html" 
+        class="twsg-nav-menu-mb__item-link" tabindex="0">
+        {{header}}
+        </a>
+      </li>
+        {{#eachSection reference}}
+          {{#ifDepth 2}}
+            <li class="twsg-nav-menu-mb__item twsg-nav-menu-mb__item--l2">
+              <a 
+              href="section-{{../../referenceURI}}#twsg-ref-{{referenceURI}}.html" 
+              class="twsg-nav-menu-mb__item-link" tabindex="0">
+              {{header}}
+              </a>
+            </li>
+          {{/if}}
+        {{/eachSection}}   
+      {{/eachRoot}}
+    </ul>
+  </div>
+  <!-- Main Navigation -->
+  <div class="twsg-style">
+    <div class="twsg-grid-container">
+      <div class="twsg-grid-row">
+          <nav class="twsg-nav twsg-nav--blue">
+            <a class="twsg-nav__logo" title="Logo" href="./index.html">
+              <img class="twsg-nav__logo-img" src="public/tw-logo-white.png" alt="Logo" tabindex="0">
+            </a>
+            <button class="twsg-nav__toggle"></button>
+            <ul class="twsg-nav-menu">
+              <li class="twsg-nav-menu__item">
+                <a href="./index.html" class="twsg-nav-menu__item-link" tabindex="0">Overview</a>
+              </li>
+              {{#eachRoot}}
+              <li class="twsg-nav-menu__item">
+                <a href="section-{{referenceURI}}.html"
+                class="twsg-nav-menu__item-link" 
+                href="section-{{referenceURI}}.html"
+                tabindex="0">{{header}}</a>
+                <ul class="twsg-nav-menu-l2">
+                {{#eachSection reference}}
+                  {{#ifDepth 2}}
+                    <li class="twsg-nav-menu-l2__item">
+                      <a  href="section-{{../../referenceURI}}#twsg-ref-{{referenceURI}}.html" class="twsg-nav-menu-l2__item-link" tabindex="0">{{header}}</a>
+                    </li>
+                  {{/if}}
+                {{/eachSection}}
+                </ul>
+              </li>
+              {{/eachRoot}}
+            </ul>
+          </nav> 
+      </div>
+    </div>
+  </div>
+
+  {{#if homepage}}
+    <!-- Hero Banner -->
+    <div class="twsg-style">
+      <section class="twsg-hero twsg-hero--style-2">
+        <h1 class="twsg-h1 twsg-h1--hero-title">Ambitious missions need disruptive thinking</h1>
+      </section>
+    </div>
+    <!-- Overview Page -->
+    <div id="twsg-ref-0" class="twsg-style">
+      <div class="twsg-grid-container">
+        <div class="twsg-grid-row">
+          <div class="twsg-col-xs-12 twsg-overview">
+            {{{homepage}}}
+          </div>    
+        </div>
+      </div>
+    </div>
+  {{else}}
+  <div class="twsg-style"></div>
+    <div class="twsg-grid-container">
+      <div class="twsg-grid-row">
+        <div class="twsg-col-xs-12">
+          <article class="twsg-style">
+            {{#ifDepth 1}}
+              <div id="twsg-ref-{{referenceURI}}" class="twsg-section twsg-section--depth-{{depth}}">
+            {{else}}
+              <section id="twsg-ref-{{referenceURI}}" class="twsg-section twsg-section--depth-{{depth}}">
+            {{/ifDepth}}
+              <header class="twsg-section-header">
+                {{#ifDepth 1}}
+                <h1 class="twsg-h1 twsg-h1--section-heading">
+                  <a href="#twsg-ref-{{referenceURI}}" class="twsg-section__permalink">
+                    {{header}}
+                  </a>
+                </h1>
+                {{else}}
+                <h2 class="twsg-h2 twsg-h2--section-heading">
+                  <a href="#twsg-ref-{{referenceURI}}" class="twsg-section__permalink">
+                    {{header}}
+                  </a>
+                </h2>
+                {{/ifDepth}}
+                <h3 class="twsg-h3 twsg-h3--section-heading">Section 
+                {{#ifNumeric reference}}
+                  {{reference}}
+                {{else}}
+                  {{autoincrement}}
+                {{/ifNumeric}}
+                </h3>
+              </header>
+
+              {{#if parameters}}
+                <ul class="twsg-section-parameters">
+                {{#eachParameter}}
+                  <li class="twsg-section-parameters__item">
+                    <code class="twsg-section-parameters__code">{{name}}</code>
+                    <div class="twsg-section-parameters__desc">{{{description}}}</div>
+                  </li>
+                {{/eachParameter}}
+                </ul>
+              {{/if}}
+
+              {{#if description}}
+                <div class="twsg-section-description">
+                  {{{description}}}
+                </div>
+              {{/if}}
+
+              {{#if markup}}
+                
+                <div class="kss-modifier__wrapper">
+                  <div class="kss-modifier__heading kss-style">
+                    Example{{#if modifiers}}s{{/if}}
+                  </div>
+                {{#if modifiers}}
+                  <div class="kss-modifier__default-name kss-style">
+                    Default styling
+                  </div>
+                {{/if}}
+                  <div class="kss-modifier__example">
+                    {{{markup}}}
+                  </div>
+                {{#eachModifier}}
+                  <div class="kss-modifier__name kss-style">
+                    {{name}}
+                  </div>
+                  <div class="kss-modifier__description kss-style">
+                    {{{description}}}
+                  </div>
+                  <div class="kss-modifier__example">
+                    {{{markup}}}
+                  </div>
+                {{/eachModifier}}
+                </div>
+
+                <div class="kss-markup kss-style">
+                  <pre class="prettyprint linenums lang-html">
+                    <code data-language="html">{{markup}}</code>
+                  </pre>
+                </div>
+              {{/if}}
+
+            {{#ifDepth 1}}
+              </div>
+            {{else}}
+              </section>
+            {{/ifDepth}}
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>    
+  {{/if}}
+<!-- /Body -->
+
+  <!-- SCRIPTS -->
+  <script src="public/thoughtworks.js"></script>
+  <script src="public/prettify.js"></script>
+  <script>
+    prettyPrint();
+  </script>
+  {{{scripts}}}
+</body>
+</html>

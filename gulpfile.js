@@ -7,6 +7,13 @@ var minify = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var exec = require('child_process').exec;
+var serve = require('gulp-serve');
+
+//To make media queries and respond.js to work with IE8 Serve it on local host
+//Port 3000
+gulp.task('serve', ['styleguide:create'], serve('styleguide'));
+
+console.log(serve)
 
 //clean build folder
 gulp.task('clean:build', function(cb) {
@@ -28,18 +35,33 @@ gulp.task('clean:build', function(cb) {
     }))
     .pipe(gulp.dest('build/template/public'));
 })
+//JSlint and minfy JS
+.task('template:js', ['clean:build', 'tempate:copy'], function() {
+  return gulp.src('src/js/thoughtworks.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('fail'))
+    .pipe(gulp.dest('build/template/public'))
+    .pipe(uglify())
+    .pipe(rename(function(path) {
+      path.basename += '.min';
+    }))
+    .pipe(gulp.dest('build/template/public'));
+})
+//Copy styleguide assets
+.task('tempate:assets', ['tempate:copy'], function() {
+  return gulp.src(['./src/img/**'])
+    .pipe(gulp.dest('./build/template/public'));
+})
 //Create styleguide
-.task('styleguide:create', ['clean:build', 'tempate:copy', 'tempate:assets', 'template:css'], function(cb) {
+.task('styleguide:create', ['clean:build', 'tempate:copy', 'tempate:assets', 'template:css', 'template:js'], function(cb) {
   exec('"./node_modules/.bin/kss-node" --config "./kss-config.json"', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
   });
 })
-//Copy styleguide assets
-.task('tempate:assets', ['tempate:copy'], function() {
-  return gulp.src(['./src/img/**', './src/js/**'])
-    .pipe(gulp.dest('./build/template/public'));
-})
 //Generate the styleguide
-.task('styleguide', ['styleguide:create']);
+.task('styleguide', ['styleguide:create'], function() {
+  gulp.watch(['./src/less/**/*.*', './src/js/**/*.*'], ['styleguide:create']);
+});

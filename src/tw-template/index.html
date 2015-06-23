@@ -14,7 +14,13 @@
   <meta name="viewport" content="width=device-width">
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="public/thoughtworks.min.css">
+  <link rel="stylesheet" href="public/desert.css">
   {{{styles}}}
+
+  <!--[if lt IE 9]>
+    <script src="public/html5shiv.min.js"></script>
+    <script src="public/respond.min.js"></script>
+  <![endif]-->
 </head>
 <body id="twsg-style">
   <div class="twsg-style">
@@ -214,10 +220,26 @@
     </div>
   </div>    
   {{/if}}
+  <div class="twsg-style">
+    <div class="twsg-grid-container">
+      <footer class="twsg-grid-row twsg-footer">
+        <div class="twsg-col-xs-12 twsg-col-md-8 twsg-footer-text">
+          Created with love at 
+          <a class="twsg-footer__link" href="http://www.thoughtworks.com" title="Thoughtworks" target="_blank">Thoughtworks
+          </a> &copy; <span id="twsg-footer-year">2015</span>
+        </div>
+        <div class="twsg-col-xs-12 twsg-col-md-4 twsg-footer-logo">
+          <a class="twsg-footer__link" href="http://www.thoughtworks.com" title="Thoughtworks" target="_blank">
+            <img class="twsg-footer__img" alt="Thoughtworks logo" src="public/tw-logo-white.png">
+          </a>
+        </div>
+      </footer>
+    </div>
+ </div>   
 <!-- /Body -->
 
   <!-- SCRIPTS -->
-  <script src="public/thoughtworks.js"></script>
+  <script src="public/thoughtworks.min.js"></script>
   <script src="public/prettify.js"></script>
   <script>
     prettyPrint();

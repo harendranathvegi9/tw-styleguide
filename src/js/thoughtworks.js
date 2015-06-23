@@ -7,21 +7,21 @@
 
   TWSG.prototype.trim = function(text) {
     var self = this;
-    return text == null ?
+    return text === null ?
       '' :
       (text + '').replace(self.rtrim, '');
   };
 
   TWSG.prototype.hasClass = function(ele, cls) {
     return !!ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
-  }
+  };
 
   TWSG.prototype.addClass = function(ele, cls) {
     var self = this;
     if (!self.hasClass(ele, cls)) {
       ele.className = self.trim(ele.className + ' ' + cls);
     }
-  }
+  };
 
   TWSG.prototype.removeClass = function(ele, cls) {
     var self = this;
@@ -29,7 +29,7 @@
       var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
       ele.className = ele.className.replace(reg, '');
     }
-  }
+  };
 
   TWSG.prototype.preChecker = function() {
     var self = this;
@@ -40,8 +40,8 @@
         var codeClasses = codeElement.className;
         self.addClass(preElements[i], 'prettyprint linenums ' + codeClasses);
       }
-    };
-  }
+    }
+  };
 
   TWSG.prototype.navBinding = function() {
     
@@ -49,24 +49,28 @@
     var body = document.querySelector('body');
     var navBars = document.querySelectorAll('.twsg-nav');
     var mbNav = document.querySelector('.twsg-nav-menu-mb');
-    var mbNavClose = document.querySelectorAll('.twsg-nav-menu-mb__item--close > a');
+    var mbNavClose = document.querySelectorAll('.twsg-nav-menu-mb__item > a');
 
     for (var i = 0; i < navBars.length; i++) {
-      var toggleSwitch = navBars[i].getElementsByClassName("twsg-nav__toggle")[0];
+      var toggleSwitch = navBars[i].querySelector(".twsg-nav__toggle");
+      /* jshint ignore:start */
       toggleSwitch.onclick = function(e) {
         window.scrollTo(0, 0);
         var body = document.querySelector('body');
         self.addClass(body, 'twsg-remove-scroll');
         self.addClass(mbNav, 'active');
-      }
+      };
+      /* jshint ignore:end */
     }
 
     for (var j = 0; j < mbNavClose.length; j++) {
       var closeEl = mbNavClose[j];
+      /* jshint ignore:start */
       closeEl.onclick = function(e) {
         self.removeClass(body, 'twsg-remove-scroll');
         self.removeClass(mbNav, 'active');
-      }
+      };
+      /* jshint ignore:end */
     }
 
     window.onresize = function(e) {
@@ -75,8 +79,16 @@
     };
   };
 
+  TWSG.prototype.footerYear = function(){
+    footerYearEl = document.getElementById('twsg-footer-year');
+    if(footerYearEl){
+      footerYearEl.innerHTML = new Date().getFullYear();
+    }
+  };
+
   var twsgInstance = new TWSG();
   twsgInstance.preChecker();
   twsgInstance.navBinding();
+  twsgInstance.footerYear();
 
 })(window);

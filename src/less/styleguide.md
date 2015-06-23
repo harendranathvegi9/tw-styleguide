@@ -85,5 +85,4 @@ Content in the first column | Content in the second column
 ###If you want to embed images, this is how you do it:
 ####Large Images
 <img src="https://octodex.github.com/images/yaktocat.png" alt="Yaktocat" class="img-responsive">
-####Smaller Images
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+

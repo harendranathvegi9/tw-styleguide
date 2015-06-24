@@ -1797,7 +1797,7 @@ td.twsg-style .twsg-hidden-lg {
 .twsg-style .twsg-colors-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 20px;
 }
 .twsg-style .twsg-colors-list__item {
   display: block;
@@ -2186,13 +2186,16 @@ td.twsg-style .twsg-hidden-lg {
     padding-left: 35px;
   }
 }
+.twsg-style .twsg-section-markup {
+  margin: 20px 0;
+}
 .twsg-style .twsg-section-description {
   margin: 20px 0 0;
 }
 .twsg-style .twsg-section-description * {
   font-size: 18px;
   line-height: 29px;
-  font-weight: 300;
+  font-weight: 400;
   font-family: "Open Sans", "Microsoft YaHei", "Hiragino Sans GB", "Hiragino Sans GB W3", "微软雅黑", "Helvetica Neue", Arial, sans-serif;
 }
 .twsg-style .twsg-section-description p,

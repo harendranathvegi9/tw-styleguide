@@ -1,5 +1,6 @@
 {
   "source": "src/less/",
   "destination": "styleguide/",
+  "css":["https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"],
   "template": "template/"
 }

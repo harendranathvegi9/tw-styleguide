@@ -2189,6 +2189,46 @@ td.twsg-style .twsg-hidden-lg {
 .twsg-style .twsg-section-markup {
   margin: 20px 0;
 }
+.twsg-style .twsg-section-markup__toggle {
+  line-height: 40px;
+  padding: 0 10px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  font-weight: 600;
+  border: 1px solid #ddd;
+}
+.twsg-style .twsg-section-markup__toggle:before,
+.twsg-style .twsg-section-markup__toggle:after {
+  content: " ";
+  display: table;
+}
+.twsg-style .twsg-section-markup__toggle:after {
+  clear: both;
+}
+.twsg-style .twsg-section-markup__toggle > a {
+  float: right;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url('hide.png') no-repeat center center;
+}
+.twsg-style .twsg-section-markup .prettyprint {
+  display: none;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border: 1px solid #ddd;
+}
+.twsg-style .twsg-section-markup.active .twsg-section-markup__toggle {
+  margin-bottom: -2px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.twsg-style .twsg-section-markup.active .twsg-section-markup__toggle > a {
+  background: url('view.png') no-repeat center center;
+}
+.twsg-style .twsg-section-markup.active .prettyprint {
+  display: block;
+}
 .twsg-style .twsg-section-description {
   margin: 20px 0 0;
 }

@@ -38,13 +38,13 @@
       var codeElement = preElements[i].firstChild;
       if (codeElement.tagName === 'CODE') {
         var codeClasses = codeElement.className;
-        self.addClass(preElements[i], 'prettyprint linenums ' + codeClasses);
+        self.addClass(preElements[i], 'prettyprint ' + codeClasses);
       }
     }
   };
 
   TWSG.prototype.navBinding = function() {
-    
+
     var self = this;
     var body = document.querySelector('body');
     var navBars = document.querySelectorAll('.twsg-nav');
@@ -79,10 +79,28 @@
     };
   };
 
-  TWSG.prototype.footerYear = function(){
+  TWSG.prototype.footerYear = function() {
     footerYearEl = document.getElementById('twsg-footer-year');
-    if(footerYearEl){
+    if (footerYearEl) {
       footerYearEl.innerHTML = new Date().getFullYear();
+    }
+  };
+
+  TWSG.prototype.markupToggle = function() {
+    var self = this;
+    var toggleEls = document.querySelectorAll('.twsg-section-markup__toggle');
+    for (var i = 0; i < toggleEls.length; i++) {
+      var toggleEl = toggleEls[i];
+      /* jshint ignore:start */
+      toggleEl.onclick = function(e) {
+        var markupEl = e.target.parentElement.parentElement;
+        if (!self.hasClass(markupEl, 'active')) {
+          self.addClass(markupEl, 'active');
+          return;
+        }
+        self.removeClass(markupEl, 'active');
+      };
+      /* jshint ignore:end */
     }
   };
 
@@ -90,5 +108,6 @@
   twsgInstance.preChecker();
   twsgInstance.navBinding();
   twsgInstance.footerYear();
+  twsgInstance.markupToggle();
 
 })(window);

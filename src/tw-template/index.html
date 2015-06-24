@@ -41,7 +41,7 @@
   <!-- Theme CSS -->
   {{{styles}}}
   {{/if}}
-  
+
   <!--[if lt IE 9]>
     <link rel="stylesheet" href="public/thoughtworks-ie.min.css">
     <script src="public/html5shiv.min.js"></script>
@@ -226,7 +226,10 @@
                   {{/eachModifier}}
                   <div class="twsg-col-xs-12"> 
                     <div class="twsg-section-markup">
-                      <pre class="prettyprint linenums lang-html">
+                      <div class="twsg-section-markup__toggle">
+                        Markup<a href="javascript:void(0);"></a>
+                      </div>
+                      <pre class="prettyprint lang-html">
                         <code data-language="html">{{markup}}</code>
                       </pre>
                     </div>
@@ -265,7 +268,7 @@
 <!-- /Body -->
 
   <!-- SCRIPTS -->
-  <script src="public/thoughtworks.min.js"></script>
+  <script src="public/thoughtworks.js"></script>
   <script src="public/prettify.js"></script>
   <script>
     prettyPrint();

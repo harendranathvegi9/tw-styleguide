@@ -270,6 +270,7 @@
       line-height: 26px;
       background-size: 30px;
       padding: 0 40px 25px 40px;
+      color:@clr-bright-2;
 
       @media (min-width: @twsg-screen-md) {
         font-size: 24px;
@@ -282,12 +283,19 @@
 
     ol,ul {
       list-style-position: inside;
+      .clearfix();
       li{
         font-family: @twsg-font-family;
         font-style: normal;
-        font-weight: 700;
+        font-weight: @twsg-font-light;
         list-style: none;
-        text-align: right;
+        color: @clr-earth-5;
+        float: right;
+        &:before{
+          content: '----';
+          margin-right: 10px;
+          letter-spacing: -2px;
+        }
       }
     }
   }

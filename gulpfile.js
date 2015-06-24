@@ -26,7 +26,7 @@ gulp.task('clean:build', function(cb) {
 })
 //compile less file
 .task('template:css', ['clean:build', 'tempate:copy'], function() {
-  return gulp.src('src/less/thoughtworks.less')
+  return gulp.src(['src/less/thoughtworks.less','src/less/thoughtworks-ie.less'])
     .pipe(less())
     .pipe(gulp.dest('build/template/public'))
     .pipe(minify())

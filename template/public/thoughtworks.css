@@ -2318,7 +2318,7 @@ td.twsg-style .twsg-hidden-lg {
   background: #EEEEEE;
   border-top: 0;
 }
-.twsg-overview p code {
+.twsg-overview * code {
   font-family: monospace;
   padding: 2px 4px;
   font-size: 90%;
@@ -2326,12 +2326,16 @@ td.twsg-style .twsg-hidden-lg {
   background-color: #f9f2f4;
   border-radius: 4px;
 }
-.twsg-overview p a {
+.twsg-overview * a {
   text-decoration: none;
   color: #1a73ba;
 }
-.twsg-overview p a:hover {
+.twsg-overview * a:hover {
   text-decoration: underline;
+}
+.twsg-overview pre.prettyprint code {
+  background: transparent;
+  font-size: 1em;
 }
 .twsg-style .twsg-footer {
   background: #808285;
@@ -2592,7 +2596,7 @@ td.twsg-style .twsg-hidden-lg {
     background-size: 55px;
     background-position: 0 -12px;
     width: 700px;
-    margin: 0 auto;
+    margin: 25px auto;
   }
 }
 .twsg-overview > blockquote p,

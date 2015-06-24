@@ -16,51 +16,53 @@ gulp.task('serve', ['styleguide:create'], serve('styleguide'));
 console.log(serve)
 
 //clean build folder
-gulp.task('clean:build', function(cb) {
+gulp.task('template:clean', function(cb) {
   del(['./build', './styleguide'], cb);
 })
 //Copy template folder
-.task('tempate:copy', ['clean:build'], function() {
+.task('tempate:copy', ['template:clean'], function() {
   return gulp.src('src/tw-template/**')
-    .pipe(gulp.dest('build/template'));
+    .pipe(gulp.dest('template'));
 })
 //compile less file
-.task('template:css', ['clean:build', 'tempate:copy'], function() {
-  return gulp.src(['src/less/thoughtworks.less','src/less/thoughtworks-ie.less'])
+.task('template:css', ['template:clean', 'tempate:copy'], function() {
+  return gulp.src(['src/less/thoughtworks.less', 'src/less/thoughtworks-ie.less'])
     .pipe(less())
-    .pipe(gulp.dest('build/template/public'))
+    .pipe(gulp.dest('template/public'))
     .pipe(minify())
     .pipe(rename(function(path) {
       path.basename += '.min';
     }))
-    .pipe(gulp.dest('build/template/public'));
+    .pipe(gulp.dest('template/public'));
 })
 //JSlint and minfy JS
-.task('template:js', ['clean:build', 'tempate:copy'], function() {
+.task('template:js', ['template:clean', 'tempate:copy'], function() {
   return gulp.src('src/js/thoughtworks.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(jshint.reporter('fail'))
-    .pipe(gulp.dest('build/template/public'))
+    .pipe(gulp.dest('template/public'))
     .pipe(uglify())
     .pipe(rename(function(path) {
       path.basename += '.min';
     }))
-    .pipe(gulp.dest('build/template/public'));
+    .pipe(gulp.dest('template/public'));
 })
 //Copy styleguide assets
-.task('tempate:assets', ['tempate:copy'], function() {
+.task('template:assets', ['tempate:copy'], function() {
   return gulp.src(['./src/img/**'])
-    .pipe(gulp.dest('./build/template/public'));
+    .pipe(gulp.dest('./template/public'));
 })
 //Create styleguide
-.task('styleguide:create', ['clean:build', 'tempate:copy', 'tempate:assets', 'template:css', 'template:js'], function(cb) {
+.task('styleguide:create', ['tempate:create'], function(cb) {
   exec('"./node_modules/.bin/kss-node" --config "./kss-config.json"', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
     cb(err);
   });
 })
+//Create the template folder
+.task('tempate:create', ['template:clean', 'tempate:copy', 'template:css', 'template:js', 'template:assets'])
 //Generate the styleguide
 .task('styleguide', ['styleguide:create'], function() {
   gulp.watch(['./src/less/**/*.*', './src/js/**/*.*'], ['styleguide:create']);

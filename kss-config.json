@@ -1,5 +1,5 @@
 {
   "source": "src/less/",
   "destination": "styleguide/",
-  "template": "build/template/"
+  "template": "template/"
 }

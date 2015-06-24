@@ -1,88 +1,59 @@
-# Structured documents
+#A kss-node template
 
-Sometimes it's useful to have different levels of headings to structure your documents. Start lines with a `#` to create headings. Multiple `##` in a row denote smaller heading sizes.
+StyleSide is a template used with the KSS-NODE module, specifically for use within ThoughtWorks UI community. This allows us to create style guides for HTML components and modules using the node development environment without depending on `gem` packages like `hologram`.
 
-#### This is a third-tier heading
+##kss-node
 
-You can use  one `#` all the way up to `######` six for different heading sizes.
+`kss-node` is a node module that is built on top of the `KSS` implementation for generating style guides based on special comment blocks in `CSS`,`LESS` or `SASS` files.
 
-If you'd like to quote someone, use the > character before the line:
-
-> Coffee. The finest organic suspension ever devised... I beat the Borg with it.
->- Captain Janeway
-
-
-####Headers
-# This is an `<h1>` tag
-## This is an `<h2>` tag
-### This is an `<h3>` tag
-#### This is an `<h4>` tag
-##### This is an `<h5>` tag
-###### This is an `<h6>` tag
-
-##Emphasis
-*This text will be italic*
-_This will also be italic_
-
-**This text will be bold**
-__This will also be bold__
-
-*You **can** combine them*
-
-##Links
-http://github.com - automatic!
-[GitHub](http://github.com)
-
-##Code
-
-There are many different ways to style code with GitHub's markdown. If you have inline code blocks, wrap them in backticks: `var example = true`.  If you've got a longer block of code, you can indent with four spaces:
-
-    if (isAwesome){
-      return true
-    }
-
-GitHub also supports something called code fencing, which allows for multiple lines without indentation:
-
-```
-if (isAwesome){
-  return true
+###Here's an example KSS comment:
+```CSS
+// Button
+//
+// Your standard button suitable for clicking.
+//
+// :hover   - Highlights when hovering.
+// .shiny   - Do not press this big, shiny, red button.
+//
+// Markup: button.html
+//
+// Style guide: components.button
+.button {
+  ...
+}
+.button.shiny {
+  ...
 }
 ```
 
-And if you'd like to use syntax highlighting, include the language:
+Click [here](http://warpspire.com/kss/syntax/) for more information on KSS comment syntax.
 
-```javascript
-if (isAwesome){
-  return true
-}
+###Intallation
+
+`kss-node` is installed just like any other node module.
+
+```
+npm install --save-dev kss
 ```
 
-###Sometimes you want numbered lists:
+In case you do not have a verions of `kss-node` installed globally via the `-g` flag, you can access the command line tools via the node_modules `.bin` folder
+```
+./node_modules/.bin/kss-node [options]
+```
+Click [here](https://github.com/kss-node/kss-node) for more information on `kss-node`.
 
-1. One
-2. Two
-3. Three
+__NOTE__ `kss-node` [quickstart quide](https://github.com/kss-node/kss-node/wiki/Quick-Start-Guide) will give you more information about how to work with kss-node.
 
-###Sometimes you want bullet points:
+###Using the StyleSide template
 
-* Start a line with a star
-* Profit!
+Once you are familiar with KSS, using the StyleSide template with `kss-node` is pretty straight forward as you will see below.
 
-###Alternatively,
+*For local kss-node CLI*
+```
+./node_modules/.bin/kss-node --source path/to/css --destination path/to/styleguide/folder --template path/to/styleside/folder
+```
 
-- Dashes work just as well
-- And if you have sub points, put two spaces before the dash or star:
-  - Like this
-  - And this
-
-###Table
-
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column  
-
-###If you want to embed images, this is how you do it:
-####Large Images
-<img src="https://octodex.github.com/images/yaktocat.png" alt="Yaktocat" class="img-responsive">
-
+*For global kss-node CLI*
+```
+kss-node --source path/to/css --destination path/to/styleguide/folder --template path/to/styleside/folder
+```
